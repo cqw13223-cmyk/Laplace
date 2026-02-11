@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラプラス変換計算機</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">ラプラス変換</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="basics.html">基礎</a></li>
+                <li><a href="examples.html">具体例</a></li>
+                <li><a href="calculator.html">計算機</a></li>
+                <li><a href="applications.html">応用</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>ラプラス変換計算機</h1>
+        <p>関数を選択してパラメータを入力し、ラプラス変換を計算します。</p>
+
+        <section class="calculator-section">
+            <div class="input-group">
+                <label for="function-select">関数を選択：</label>
+                <select id="function-select">
+                    <option value="">-- 選択してください --</option>
+                    <option value="constant">定数：f(t) = c</option>
+                    <option value="unit_step">単位ステップ：f(t) = u(t)</option>
+                    <option value="ramp">ランプ関数：f(t) = t</option>
+                    <option value="t_squared">f(t) = t²</option>
+                    <option value="exponential">指数関数：f(t) = e^(at)</option>
+                    <option value="t_exponential">f(t) = t·e^(at)</option>
+                    <option value="sine">正弦関数：f(t) = sin(ωt)</option>
+                    <option value="cosine">余弦関数：f(t) = cos(ωt)</option>
+                    <option value="exp_sine">f(t) = e^(at)·sin(ωt)</option>
+                    <option value="exp_cosine">f(t) = e^(at)·cos(ωt)</option>
+                    <option value="sinh">双曲正弦：f(t) = sinh(at)</option>
+                    <option value="cosh">双曲余弦：f(t) = cosh(at)</option>
+                </select>
+            </div>
+
+            <div class="parameters-container">
+                <div class="parameter" id="param-c" style="display:none;">
+                    <label for="constant-value">定数 c：</label>
+                    <input type="number" id="constant-value" value="1" step="0.1">
+                </div>
+                <div class="parameter" id="param-a" style="display:none;">
+                    <label for="param-a-value">パラメータ a：</label>
+                    <input type="number" id="param-a-value" value="1" step="0.1">
+                </div>
+                <div class="parameter" id="param-omega" style="display:none;">
+                    <label for="param-omega-value">周波数 ω：</label>
+                    <input type="number" id="param-omega-value" value="1" step="0.1">
+                </div>
+            </div>
+
+            <button class="btn-calculate" onclick="calculateTransform()">計算する</button>
+
+            <div id="result-container" style="display:none;" class="result-container">
+                <h2>計算結果</h2>
+                <div class="result-box">
+                    <p><strong>入力関数：</strong></p>
+                    <div id="input-formula" class="formula"></div>
+                    <p><strong>ラプラス変換：</strong></p>
+                    <div id="output-formula" class="formula"></div>
+                    <p><strong>条件：</strong></p>
+                    <div id="condition-text" class="condition"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>計算機の使い方</h2>
+            <ol>
+                <li>関数を選択します</li>
+                <li>必要なパラメータ（a, ω など）を入力します</li>
+                <li>「計算する」ボタンをクリックします</li>
+                <li>結果がラプラス変換の式で表示されます</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ラプラス変換教育サイト。すべての権利を保有しています。</p>
+    </footer>
+
+    <script src="../js/calculator.js"></script>
+</body>
+</html>

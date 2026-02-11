@@ -1,1 +1,65 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Laplace Transform Educational Website</title>\n    <link rel="stylesheet" href="styles.css">\n</head>\n<body>\n    <nav>\n        <ul>\n            <li><a href="#home">Home</a></li>\n            <li><a href="#about">About</a></li>\n            <li><a href="#resources">Resources</a></li>\n            <li><a href="#contact">Contact</a></li>\n        </ul>\n    </nav>\n    <header class="hero">\n        <h1>Welcome to the Laplace Transform Educational Website</h1>\n        <p>Your journey to understand Laplace Transforms starts here!</p>\n    </header>\n    <main>\n        <section id="about">\n            <h2>About Laplace Transforms</h2>\n            <p>Laplace transforms are integral transforms used to convert a function of time into a function of a complex variable.</p>\n        </section>\n        <section id="resources">\n            <h2>Resources</h2>\n            <p>Find various resources to enhance your learning about Laplace Transforms.</p>\n        </section>\n    </main>\n    <footer>\n        <p>&copy; 2026 Laplace Transform Website. All rights reserved.</p>\n    </footer>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラプラス変換教育サイト</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ラプラス変換</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="pages/basics.html">基礎</a></li>
+                <li><a href="pages/examples.html">具体例</a></li>
+                <li><a href="pages/calculator.html">計算機</a></li>
+                <li><a href="pages/applications.html">応用</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>ラプラス変換を学ぶ</h1>
+        <p>ラプラス変換の基礎から応用まで、わかりやすく解説します</p>
+    </header>
+
+    <main class="container">
+        <section class="intro-section">
+            <h2>ラプラス変換とは？</h2>
+            <p>ラプラス変換は、時間領域の関数を複素周波数領域に変換する積分変換です。</p>
+            <p>制御工学、電気工学、信号処理など、様々な分野で活躍しています。</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>📚 基礎知識</h3>
+                <p>ラプラス変換の定義から主な性質まで、基礎を学べます。</p>
+                <a href="pages/basics.html" class="btn">詳しく見る</a>
+            </div>
+            <div class="feature-card">
+                <h3>📋 具体例</h3>
+                <p>よく使われる関数の変換表と計算例を紹介します。</p>
+                <a href="pages/examples.html" class="btn">詳しく見る</a>
+            </div>
+            <div class="feature-card">
+                <h3>🧮 計算機</h3>
+                <p>関数を選択してラプラス変換を計算できます。</p>
+                <a href="pages/calculator.html" class="btn">計算機を使う</a>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ 応用例</h3>
+                <p>制御工学や回路解析での応用例を学べます。</p>
+                <a href="pages/applications.html" class="btn">詳しく見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ラプラス変換教育サイト。すべての権利を保有しています。</p>
+    </footer>
+</body>
+</html>

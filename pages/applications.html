@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラプラス変換の応用</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">ラプラス変換</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="basics.html">基礎</a></li>
+                <li><a href="examples.html">具体例</a></li>
+                <li><a href="calculator.html">計算機</a></li>
+                <li><a href="applications.html">応用</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>ラプラス変換の応用</h1>
+
+        <section class="content-section">
+            <h2>1. 制御工学への応用</h2>
+            
+            <h3>システムの伝達関数</h3>
+            <p>制御工学では、ラプラス変換を使ってシステムを伝達関数で表現します：</p>
+            <div class="formula">
+                $$G(s) = \frac{Y(s)}{U(s)}$$
+            </div>
+            <p>ここで：</p>
+            <ul>
+                <li>U(s)：入力信号のラプラス変換</li>
+                <li>Y(s)：出力信号のラプラス変換</li>
+                <li>G(s)：システムの伝達関数</li>
+            </ul>
+
+            <h3>例：1次遅れシステム</h3>
+            <p>時定数τを持つ1次遅れシステムの微分方程式：</p>
+            <div class="formula">
+                $$\tau \frac{dy}{dt} + y = u(t)$$
+            </div>
+            <p>ラプラス変換を適用すると：</p>
+            <div class="formula">
+                $$\tau s Y(s) + Y(s) = U(s)$$
+            </div>
+            <p>伝達関数は：</p>
+            <div class="formula">
+                $$G(s) = \frac{Y(s)}{U(s)} = \frac{1}{\tau s + 1}$$
+            </div>
+
+            <h3>安定性の判定</h3>
+            <p>システムの極（pole）の位置で安定性を判定します：</p>
+            <ul>
+                <li><strong>安定</strong>：すべての極が左半平面にある（Re(s) < 0）</li>
+                <li><strong>不安定</strong>：任意の極が右半平面にある（Re(s) > 0）</li>
+                <li><strong>限界的に安定</strong>：複素軸上に極がある</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>2. 回路解析への応用</h2>
+
+            <h3>RLC直列回路</h3>
+            <p>抵抗R、インダクタンスL、キャパシタンスCを含む直列回路の方程式：</p>
+            <div class="formula">
+                $$L\frac{di}{dt} + Ri + \frac{1}{C}\int i \, dt = v(t)$$
+            </div>
+            <p>ラプラス変換を適用すると（初期条件がゼロの場合）：</p>
+            <div class="formula">
+                $$(Ls + R + \frac{1}{Cs})I(s) = V(s)$$
+            </div>
+            <p>インピーダンスは：</p>
+            <div class="formula">
+                $$Z(s) = Ls + R + \frac{1}{Cs}$$
+            </div>
+
+            <h3>周波数応答</h3>
+            <p>s = jω を代入することで周波数応答が得られます：</p>
+            <div class="formula">
+                $$Z(j\omega) = R + j(\omega L - \frac{1}{\omega C})$$
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>3. 信号処理への応用</h2>
+
+            <h3>フィルタ設計</h3>
+            <p>ラプラス変換は、アナログフィルタの設計に使用されます：</p>
+            <ul>
+                <li><strong>ローパスフィルタ</strong>：低周波信号を通す</li>
+                <li><strong>ハイパスフィルタ</strong>：高周波信号を通す</li>
+                <li><strong>バンドパスフィルタ</strong>：特定の周波数帯域を通す</li>
+            </ul>
+
+            <h3>簡単なローパスフィルタ</h3>
+            <p>時定数τを持つローパスフィルタの伝達関数：</p>
+            <div class="formula">
+                $$H(s) = \frac{1}{\tau s + 1}$$
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>4. 機械工学への応用</h2>
+
+            <h3>質量-バネ-ダンパー系</h3>
+            <p>質量mを持つ物体が、バネ定数kのバネとダンパー係数cのダンパーに接続されている場合：</p>
+            <div class="formula">
+                $$m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = f(t)$$
+            </div>
+            <p>ラプラス変換を適用すると（初期条件がゼロ）：</p>
+            <div class="formula">
+                $$(ms^2 + cs + k)X(s) = F(s)$$
+            </div>
+            <p>伝達関数は：</p>
+            <div class="formula">
+                $$G(s) = \frac{X(s)}{F(s)} = \frac{1}{ms^2 + cs + k}$$
+            </div>
+
+            <h3>固有周波数と減衰比</h3>
+            <p>標準形に書き直すと：</p>
+            <div class="formula">
+                $$G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$$
+            </div>
+            <p>ここで：</p>
+            <ul>
+                <li>$$\omega_n = \sqrt{k/m}$$：自然角周波数</li>
+                <li>$$\zeta = \frac{c}{2\sqrt{km}}$$：減衰比</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>5. 実践例：ステップ応答</h2>
+            <p>単位ステップ入力 u(t) に対する1次遅れシステムのステップ応答を求めます。</p>
+            <div class="formula">
+                $$G(s) = \frac{1}{\tau s + 1}$$
+            </div>
+            <p>入力のラプラス変換：</p>
+            <div class="formula">
+                $$U(s) = \frac{1}{s}$$
+            </div>
+            <p>出力のラプラス変換：</p>
+            <div class="formula">
+                $$Y(s) = G(s)U(s) = \frac{1}{s(\tau s + 1)}$$
+            </div>
+            <p>部分分数分解：</p>
+            <div class="formula">
+                $$Y(s) = \frac{1}{s} - \frac{1}{s + 1/\tau}$$
+            </div>
+            <p>逆ラプラス変換：</p>
+            <div class="formula">
+                $$y(t) = 1 - e^{-t/\tau}$$
+            </div>
+            <p>この応答は、時定数τで指数関数的に1に近づきます。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ラプラス変換教育サイト。すべての権利を保有しています。</p>
+    </footer>
+</body>
+</html>
