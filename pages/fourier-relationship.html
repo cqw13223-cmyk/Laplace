@@ -1,41 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relationship Between Laplace and Fourier Transforms</title>
+    <title>ラプラス変換とフーリエ変換の関係</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Relationship Between Laplace and Fourier Transforms</h1>
-    <p>The Laplace Transform and the Fourier Transform are two integral transforms that convert functions from the time domain to the frequency domain. They are widely used in engineering, physics, and applied mathematics.</p>
-    
-    <h2>Definitions</h2>
-    <p>The Laplace Transform of a function <em>f(t)</em> is defined as:</p>
-    <pre>F(s) = ∫[0, ∞] e^(-st) f(t) dt</pre>
-    <p>The Fourier Transform of the same function is given by:</p>
-    <pre>F(ω) = ∫[-∞, ∞] e^(-iωt) f(t) dt</pre>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">ラプラス変換</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="basics.html">基礎</a></li>
+                <li><a href="examples.html">具体例</a></li>
+                <li><a href="calculator.html">計算機</a></li>
+                <li><a href="fourier-relationship.html">フーリエ変換</a></li>
+                <li><a href="applications.html">応用</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2>Key Differences</h2>
-    <ul>
-        <li>The Laplace Transform is used primarily for analyzing linear time-invariant systems, while the Fourier Transform is used for analyzing signals and systems in frequency domain.</li>
-        <li>The Laplace Transform can handle functions that grow exponentially, while the Fourier Transform deals with functions that are integrable over the entire real line.</li>
-    </ul>
+    <main class="container">
+        <h1>ラプラス変換とフーリエ変換の関係</h1>
 
-    <h2>Relationship</h2>
-    <p>The relationship between these two transforms can be understood in terms of their mathematical formulation. The Fourier Transform can be derived from the Laplace Transform by setting the complex frequency variable <em>s</em> to <em>iω</em>.</p>
-    <pre>F(iω) = ∫[0, ∞] e^(-iωt) f(t) dt</pre>
-    <p>This shows that the Fourier Transform is essentially a special case of the Laplace Transform evaluated along the imaginary axis.</p>
+        <section class="intro-section">
+            <p>ラプラス変換とフーリエ変換は、どちらも信号解析や制御工学で重要な変換です。本ページでは、これら2つの変換の定義、違い、そして関係性について解説します。</p>
+        </section>
 
-    <h2>Applications</h2>
-    <p>Both transforms are used in various fields:</p>
-    <ul>
-        <li>Control Systems</li>
-        <li>Signal Processing</li>
-        <li>Electrical Engineering</li>
-        <li>Physics</li>
-    </ul>
+        <section class="content-section">
+            <h2>1. フーリエ変換の定義</h2>
+            
+            <h3>1.1 フーリエ変換（Fourier Transform）</h3>
+            <p>関数 f(t) のフーリエ変換は以下のように定義されます：</p>
+            <div class="formula">
+                $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} e^{-j\omega t} f(t) \, dt$$
+            </div>
+            <p>ここで：</p>
+            <ul>
+                <li><strong>ω</strong>：角周波数（実数）</li>
+                <li><strong>j</strong>：虚数単位（j² = -1）</li>
+                <li><strong>F(ω)</strong>：周波数領域での表現</li>
+            </ul>
 
-    <h2>Conclusion</h2>
-    <p>Understanding the relationship between Laplace and Fourier transforms allows for better analysis of dynamic systems and signals, making these tools essential for engineers and scientists.</p>
+            <h3>1.2 逆フーリエ変換</h3>
+            <div class="formula">
+                $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{j\omega t} F(\omega) \, d\omega$$
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>2. ラプラス変換の定義（復習）</h2>
+            
+            <p>関数 f(t) のラプラス変換は：</p>
+            <div class="formula">
+                $$F(s) = \mathcal{L}\{f(t)\} = \int_0^{\infty} e^{-st} f(t) \, dt$$
+            </div>
+            <p>ここで：</p>
+            <ul>
+                <li><strong>s</strong>：複素変数（s = σ + jω）</li>
+                <li><strong>σ</strong>：実部（減衰係数）</li>
+                <li><strong>ω</strong>：虚部（角周波数）</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>3. ラプラス変換とフーリエ変換の違い</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th>ラプラス変換</th>
+                        <th>フーリエ変換</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>変数</strong></td>
+                        <td>複素変数 s = σ + jω</td>
+                        <td>実変数 ω（角周波数）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>積分範囲</strong></td>
+                        <td>0 から ∞</td>
+                        <td>-∞ から ∞</td>
+                    </tr>
+                    <tr>
+                        <td><strong>適用範囲</strong></td>
+                        <td>因果信号（t ≥ 0）</td>
+                        <td>非因果信号を含む</td>
+                    </tr>
+                    <tr>
+                        <td><strong>収束条件</strong></td>
+                        <td>Re(s) > σ₀ が必要</td>
+                        <td>絶対積分可能性</td>
+                    </tr>
+                    <tr>
+                        <td><strong>安定性判定</strong></td>
+                        <td>極の位置で判定</td>
+                        <td>周波数応答で判定</td>
+                    </tr>
+                    <tr>
+                        <td><strong>初期条件</strong></td>
+                        <td>自動的に組み込める</td>
+                        <td>別途処理が必要</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="content-section">
+            <h2>4. 数学的関係</h2>
+
+            <h3>4.1 ラプラス変換からフーリエ変換へ</h3>
+            <p>ラプラス変換において、s = jω と置き換えると（σ = 0）、フーリエ変換が得られます：</p>
+            <div class="formula">
+                $$\mathcal{L}\{f(t)\}\big|_{s=j\omega} = \int_0^{\infty} e^{-j\omega t} f(t) \, dt$$
+            </div>
+            <p>ただし、これは因果信号（t ≥ 0）の片側フーリエ変換に相当します。</p>
+
+            <h3>4.2 条件付きの等価性</h3>
+            <p>因果信号 f(t)（t < 0 で f(t) = 0）に対して、ラプラス変換が σ = 0 で収束する場合：</p>
+            <div class="formula">
+                $$F(j\omega) = \mathcal{L}\{f(t)\}\big|_{s=j\omega}$$
+            </div>
+            <p>つまり、特定の条件下では、ラプラス変換はフーリエ変換を一般化したものと言えます。</p>
+
+            <h3>4.3 減衰の役割</h3>
+            <p>ラプラス変換の実部 σ は、減衰係数として機能します。これにより：</p>
+            <ul>
+                <li>発散する信号（例：指数成長）を扱える</li>
+                <li>初期条件を自然に組み込める</li>
+                <li>収束性の条件が緩和される</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>5. 具体例による比較</h2>
+
+            <h3>5.1 例1：単位ステップ関数</h3>
+            <p><strong>関数</strong>：f(t) = u(t) = 1 (t ≥ 0), 0 (t < 0)</p>
+            
+            <div class="property">
+                <h4>ラプラス変換</h4>
+                <div class="formula">
+                    $$\mathcal{L}\{u(t)\} = \frac{1}{s} \quad (s > 0)$$
+                </div>
+                <p>s = jω を代入すると：</p>
+                <div class="formula">
+                    $$\frac{1}{j\omega}$$
+                </div>
+            </div>
+
+            <div class="property">
+                <h4>フーリエ変換</h4>
+                <p>単位ステップ関数は非絶対積分可能なため、古典的なフーリエ変換が存在しません。しかし、分布関数を使用すると：</p>
+                <div class="formula">
+                    $$\mathcal{F}\{u(t)\} = \pi\delta(\omega) + \frac{1}{j\omega}$$
+                </div>
+                <p>ここで δ(ω) はディラックのデルタ関数です。</p>
+            </div>
+
+            <h3>5.2 例2：指数関数</h3>
+            <p><strong>関数</strong>：f(t) = e^(-at)u(t)（a > 0）</p>
+
+            <div class="property">
+                <h4>ラプラス変換</h4>
+                <div class="formula">
+                    $$\mathcal{L}\{e^{-at}u(t)\} = \frac{1}{s + a} \quad (s > -a)$$
+                </div>
+                <p>s = jω を代入：</p>
+                <div class="formula">
+                    $$\frac{1}{a + j\omega}$$
+                </div>
+            </div>
+
+            <div class="property">
+                <h4>フーリエ変換</h4>
+                <div class="formula">
+                    $$\mathcal{F}\{e^{-at}u(t)\} = \frac{1}{a + j\omega}$$
+                </div>
+                <p><strong>注目</strong>：この場合、ラプラス変換（s = jωで評価）とフーリエ変換が完全に一致します！</p>
+            </div>
+
+            <h3>5.3 例3：三角関数</h3>
+            <p><strong>関数</strong>：f(t) = sin(ω₀t)u(t)</p>
+
+            <div class="property">
+                <h4>ラプラス変換</h4>
+                <div class="formula">
+                    $$\mathcal{L}\{\sin(\omega_0 t)u(t)\} = \frac{\omega_0}{s^2 + \omega_0^2}$$
+                </div>
+                <p>s = jω を代入：</p>
+                <div class="formula">
+                    $$\frac{\omega_0}{(j\omega)^2 + \omega_0^2} = \frac{\omega_0}{\omega_0^2 - \omega^2}$$
+                </div>
+            </div>
+
+            <div class="property">
+                <h4>フーリエ変換</h4>
+                <p>分布関数を使用：</p>
+                <div class="formula">
+                    $$\mathcal{F}\{\sin(\omega_0 t)\} = \pi j[\delta(\omega - \omega_0) - \delta(\omega + \omega_0)]$$
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>6. 周波数応答との関係</h2>
+
+            <h3>6.1 システムの周波数応答</h3>
+            <p>システムの伝達関数 G(s) に対して：</p>
+            <ul>
+                <li><strong>ラプラス領域の伝達関数</strong>：G(s)</li>
+                <li><strong>周波数応答（フーリエ領域）</strong>：G(jω) = G(s)|_{s=jω}</li>
+            </ul>
+
+            <h3>6.2 ボード線図</h3>
+            <p>システムの周波数応答 G(jω) は、ボード線図で表現されます：</p>
+            <ul>
+                <li><strong>ゲイン</strong>：|G(jω)| [dB]</li>
+                <li><strong>位相</strong>：∠G(jω) [度]</li>
+            </ul>
+
+            <h3>6.3 例：1次遅れシステム</h3>
+            <p>伝達関数：</p>
+            <div class="formula">
+                $$G(s) = \frac{1}{\tau s + 1}$$
+            </div>
+            <p>周波数応答：</p>
+            <div class="formula">
+                $$G(j\omega) = \frac{1}{1 + j\omega\tau}$$
+            </div>
+            <p>ゲイン：</p>
+            <div class="formula">
+                $$|G(j\omega)| = \frac{1}{\sqrt{1 + (\omega\tau)^2}}$$
+            </div>
+            <p>位相：</p>
+            <div class="formula">
+                $$\angle G(j\omega) = -\arctan(\omega\tau)$$
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>7. 実務での使い分け</h2>
+
+            <h3>7.1 ラプラス変換を使う場合</h3>
+            <ul>
+                <li><strong>微分方程式を解きたい</strong>
+                    <br>初期条件を自動的に組み込める
+                </li>
+                <li><strong>線形システムを設計したい</strong>
+                    <br>ナイキスト線図、ニコルス線図などで安定性を判定
+                </li>
+                <li><strong>因果信号を扱う</strong>
+                    <br>t ≥ 0 の信号に最適
+                </li>
+                <li><strong>発散する信号を扱う</strong>
+                    <br>減衰係数σで発散を補正
+                </li>
+            </ul>
+
+            <h3>7.2 フーリエ変換を使う場合</h3>
+            <ul>
+                <li><strong>周波数成分を分析したい</strong>
+                    <br>音声・画像処理
+                </li>
+                <li><strong>定常状態の周波数特性を知りたい</strong>
+                    <br>周波数応答解析
+                </li>
+                <li><strong>非因果信号を扱う</strong>
+                    <br>過去と未来の両方を含む信号
+                </li>
+                <li><strong>スペクトル密度を計算したい</strong>
+                    <br>パワースペクトル解析
+                </li>
+            </ul>
+
+            <h3>7.3 両方を使う場合</h3>
+            <p>実務では、両者を組み合わせることが多いです：</p>
+            <ul>
+                <li>ラプラス変換で<strong>システム設計</strong>と<strong>安定性解析</strong></li>
+                <li>フーリエ変換で<strong>周波数応答</strong>の詳細な分析</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>8. 他の関連変換</h2>
+
+            <h3>8.1 Z変換</h3>
+            <p>デジタル信号処理での変換。ラプラス変換の離散版と言えます：</p>
+            <div class="formula">
+                $$X(z) = \sum_{n=0}^{\infty} x[n]z^{-n}$$
+            </div>
+
+            <h3>8.2 離散フーリエ変換（DFT）</h3>
+            <p>デジタル信号のフーリエ変換。FFT（高速フーリエ変換）で高速に計算可能：</p>
+            <div class="formula">
+                $$X[k] = \sum_{n=0}^{N-1} x[n]e^{-j2\pi kn/N}$$
+            </div>
+
+            <h3>8.3 変換の関係図</h3>
+            <div style="text-align: center; margin: 20px 0; padding: 20px; background-color: #f0f8ff; border-radius: 5px;">
+                <p><strong>ラプラス変換</strong>（連続・因果・複素周波数）</p>
+                <p>↓ (s = jω) ↓</p>
+                <p><strong>フーリエ変換</strong>（連続・全範囲・実周波数）</p>
+                <p>↓ (サンプリング) ↓</p>
+                <p><strong>離散フーリエ変換</strong>（離散・全範囲・実周波数）</p>
+                <p>← (z変換) →</p>
+                <p><strong>Z変換</strong>（離散・因果・複素周波数）</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>9. まとめ</h2>
+
+            <div class="summary-box">
+                <h3>重要なポイント</h3>
+                <ul>
+                    <li><strong>ラプラス変換</strong>は複素周波数領域での変換で、<strong>因果信号</strong>と<strong>初期条件</strong>を自然に扱える</li>
+                    <li><strong>フーリエ変換</strong>は実周波数領域での変換で、<strong>周波数成分の分析</strong>に優れている</li>
+                    <li>特定の条件下では、ラプラス変換は s = jω でフーリエ変換に帰着する</li>
+                    <li>実務では、制御工学ではラプラス変換、信号処理ではフーリエ変換をよく使う</li>
+                    <li>両者は補完的な関係にあり、問題に応じて使い分けることが重要</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ラプラス変換教育サイト。すべての権利を保有しています。</p>
+    </footer>
 </body>
 </html>
