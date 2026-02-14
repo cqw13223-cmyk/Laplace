@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Between Laplace and Fourier Transforms</title>
+</head>
+<body>
+    <h1>Relationship Between Laplace and Fourier Transforms</h1>
+    <p>The Laplace Transform and the Fourier Transform are two integral transforms that convert functions from the time domain to the frequency domain. They are widely used in engineering, physics, and applied mathematics.</p>
+    
+    <h2>Definitions</h2>
+    <p>The Laplace Transform of a function <em>f(t)</em> is defined as:</p>
+    <pre>F(s) = ∫[0, ∞] e^(-st) f(t) dt</pre>
+    <p>The Fourier Transform of the same function is given by:</p>
+    <pre>F(ω) = ∫[-∞, ∞] e^(-iωt) f(t) dt</pre>
+
+    <h2>Key Differences</h2>
+    <ul>
+        <li>The Laplace Transform is used primarily for analyzing linear time-invariant systems, while the Fourier Transform is used for analyzing signals and systems in frequency domain.</li>
+        <li>The Laplace Transform can handle functions that grow exponentially, while the Fourier Transform deals with functions that are integrable over the entire real line.</li>
+    </ul>
+
+    <h2>Relationship</h2>
+    <p>The relationship between these two transforms can be understood in terms of their mathematical formulation. The Fourier Transform can be derived from the Laplace Transform by setting the complex frequency variable <em>s</em> to <em>iω</em>.</p>
+    <pre>F(iω) = ∫[0, ∞] e^(-iωt) f(t) dt</pre>
+    <p>This shows that the Fourier Transform is essentially a special case of the Laplace Transform evaluated along the imaginary axis.</p>
+
+    <h2>Applications</h2>
+    <p>Both transforms are used in various fields:</p>
+    <ul>
+        <li>Control Systems</li>
+        <li>Signal Processing</li>
+        <li>Electrical Engineering</li>
+        <li>Physics</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Understanding the relationship between Laplace and Fourier transforms allows for better analysis of dynamic systems and signals, making these tools essential for engineers and scientists.</p>
+</body>
+</html>
