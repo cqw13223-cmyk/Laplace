@@ -1,1 +1,32 @@
-Fetching current content...
+# Laplace Transform Basics
+
+## Definition
+The Laplace Transform of a function f(t), defined for t ≥ 0, is given by the integral:  
+
+\[ F(s) = \mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st}f(t)dt \]  
+where \( s \) is a complex number.
+
+## Properties
+1. **Linearity**:  
+   If \(a\) and \(b\) are constants, \( \mathcal{L}\{af(t) + bg(t)\} = aF(s) + bG(s) \)
+2. **Differentiation**:  
+   \( \mathcal{L}\{f'(t)\} = sF(s) - f(0) \)
+3. **Integration**:  
+   \( \mathcal{L}\{\int_{0}^{t} f(\tau)d\tau\} = \frac{F(s)}{s} \)
+4. **Time shifting**:  
+   If \( f(t) \) is shifted by \( a \), \( \mathcal{L}\{f(t - a)u(t - a)\} = e^{-as}F(s) \)
+5. **Frequency shifting**:  
+   \( \mathcal{L}\{e^{at}f(t)\} = F(s - a) \)
+
+## Convergence Region
+The integral defining the Laplace Transform converges for certain values of \( s \). The convergence region is determined by the growth of \( f(t) \).  The Laplace Transform exists for \( s \) in the complex plane for which the integral converges, usually characterized by a vertical line in the s-plane.
+
+## Inverse Laplace Transform
+The Inverse Laplace Transform is defined as:  
+\[ f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} e^{st}F(s)ds \]  
+where \( c \) is a real number in the right half of the region of convergence of \( F(s) \).  
+
+### Techniques for Finding the Inverse
+1. **Partial Fraction Expansion**:  Allows breaking down complex fractions into simpler parts.
+2. **Table of Transforms**:  Utilizing known transforms and their inverses for quick referencing.
+3. **Residue Theorem**:  For finding coefficients in the expansion using contour integration.
