@@ -1,103 +1,59 @@
-# ラプラス変換サイト
+# Laplace Transform Educational Website
 
-## 📚 概要
+## Introduction
+The Laplace Transform is a powerful integral transform used in mathematics and engineering to analyze linear time-invariant systems. This website aims to provide comprehensive educational resources on the Laplace Transform, including theory, applications, and examples.
 
-このプロジェクトは、ラプラス変換の基礎から応用まで、わかりやすく学べる教育向けWebサイトです。
+## Table of Contents
+1. [What is the Laplace Transform?](#what-is-the-laplace-transform)
+2. [Mathematical Definition](#mathematical-definition)
+3. [Properties of the Laplace Transform](#properties-of-the-laplace-transform)
+4. [Applications](#applications)
+5. [Examples](#examples)
+6. [Further Reading](#further-reading)
 
-ラプラス変換は、時間領域の関数を複素周波数領域に変換する重要な数学的ツールで、制御工学、電気工学、信号処理など、様々な分野で活躍しています。
+## What is the Laplace Transform?
+The Laplace Transform takes a function of time (usually denoted as f(t)) and transforms it into a function of a complex variable (usually denoted as F(s)). It is defined as:
 
-## 🎯 特徴
+$$ F(s) = \int_{0}^{\infty} e^{-st} f(t) dt $$
 
-- **包括的な教育コンテンツ**
-  - ラプラス変換の定義と基本性質
-  - 具体的な計算例と変換表
-  - 実際の応用例の紹介
+where:
+- F(s) is the Laplace Transform of f(t)
+- s is a complex number
+- t is time
 
-- **インタラクティブな計算機**
-  - 様々な関数のラプラス変換を自動計算
-  - パラメータをカスタマイズして結果を確認
+## Mathematical Definition
+The Laplace Transform of a function f(t) defined for t >= 0 is given by the integral:
 
-- **わかりやすい説明**
-  - 数式の正確な表記（MathJax使用）
-  - 段階的な解説と具体例
-  - 図や表による視覚的表現
+$$ F(s) = \int_{0}^{\infty} e^{-st} f(t) dt $$
 
-- **レスポンシブデザイン**
-  - デスクトップ、タブレット、スマートフォンに対応
-  - どのデバイスでも快適に閲覧可能
+The transform is valid for certain values of s, known as the region of convergence (ROC).
 
-## 📁 ファイル構成
+## Properties of the Laplace Transform
+- **Linearity**: If f(t) and g(t) are functions with corresponding transforms F(s) and G(s), then:
+$$ a f(t) + b g(t) \rightarrow a F(s) + b G(s) $$
 
-```
-Laplace/
-├── index.html                 # メインページ
-├── css/
-│   └── style.css             # スタイルシート
-├── js/
-│   ├── calculator.js         # ラプラス変換計算エンジン
-│   └── main.js               # メイン機能スクリプト
-├── pages/
-│   ├── basics.html           # 基礎知識ページ
-│   ├── examples.html         # 具体例と変換表
-│   ├── calculator.html       # インタラクティブ計算機
-│   └── applications.html     # 応用例
-└── README.md                 # このファイル
-```
+- **Time Shifting**: 
+If $f(t)$ has a transform $F(s)$, then:
+$$ e^{-at} f(t) \rightarrow F(s + a) $$
 
-## 🚀 使い方
+- **Frequency Shifting**:
+$$ f(t)e^{bt} \rightarrow F(s - b) $$
 
-### ローカルでの実行
+## Applications
+- Control Systems
+- Signal Processing
+- Differential Equations
 
-1. リポジトリをクローン
-```bash
-git clone https://github.com/cqw13223-cmyk/Laplace.git
-cd Laplace
-```
+## Examples
+1. **Basic Laplace Transform**: Apply the transform to simple functions.
+2. **Inverse Laplace Transform**: Techniques to recover the time function.
 
-2. ブラウザで `index.html` を開く
-```bash
-# ファイルをダブルクリック、または
-# ローカルサーバーで実行（推奨）
-python -m http.server 8000
-# http://localhost:8000 にアクセス
-```
+## Further Reading
+- Books and articles discussing advanced topics on Laplace Transforms and their applications.
 
-### GitHub Pages での公開
+---
 
-1. リポジトリの Settings から Pages を有効化
-2. Branch を `main` に設定
-3. `https://<username>.github.io/Laplace` でアクセス可能
+This document will be frequently updated to reflect changes and new information regarding the Laplace Transform and its applications.
 
-## 📖 ページの説明
-
-### ホーム (`index.html`)
-- サイト全体の概要
-- 各セクションへのナビゲーション
-- ラプラス変換の簡単な紹介
-
-### 基礎 (`pages/basics.html`)
-- ラプラス変換の定義
-- 主な性質（線形性、微分則など）
-- 収束領域と逆ラプラス変換
-
-### 具体例 (`pages/examples.html`)
-- よく使われる関数のラプラス変換表
-- 計算例の詳細な解説
-- ステップバイステップの問題解法
-
-### 計算機 (`pages/calculator.html`)
-- インタラクティブな計算ツール
-- 12種類の基本関数に対応
-- リアルタイム結果表示
-
-### 応用 (`pages/applications.html`)
-- 制御工学での活用
-- 回路解析での応用
-- 信号処理への応用
-- 機械工学での実例
-
-## 🔧 対応するラプラス変換
-
-計算機で対応している関数：
-
-| 関数 |
+## Date of Creation
+Date: 2026-02-11 16:13:18 UTC
