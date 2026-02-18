@@ -11,6 +11,13 @@ body {
     background-color: #f9f9f9;
 }
 
+img {
+    width: 100%; 
+    max-width: 320px; 
+    height: auto; 
+    border-radius: 8px;
+}
+
 /* ナビゲーションバー */
 .navbar {
     background-color: #2c3e50;
